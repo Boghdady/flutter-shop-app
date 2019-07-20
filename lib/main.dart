@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop_app/authentication/authenticatable.dart';
+import 'package:flutter_shop_app/authentication/authentication_controller.dart';
 
 void main() => runApp(MyApp());
 

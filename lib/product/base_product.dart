@@ -9,7 +9,7 @@ import 'package:flutter_shop_app/product_option/product_option_controller.dart';
 import 'package:flutter_shop_app/tag/base_tag.dart';
 import 'package:flutter_shop_app/tag/tag_controller.dart';
 
-abstract class BaseProduct {
+class BaseProduct {
   String id;
   String title;
   String description;
