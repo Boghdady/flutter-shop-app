@@ -19,4 +19,10 @@ class FirebaseAuthenticationController implements Authenticatable {
     // TODO: implement resetPassword
     return null;
   }
+
+  @override
+  Future<User> updateProfile(User user) {
+    // TODO: implement updateProfile
+    return null;
+  }
 }
