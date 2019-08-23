@@ -52,39 +52,64 @@ class _SignInState extends State<SignIn> {
           left: 24.0,
           top: MediaQuery.of(context).size.height * 0.25,
           right: 24.0),
-      child: Column(
-        children: <Widget>[
-          TextFormField(
-            controller: _emailController,
-            keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(
-              hintText: 'Email',
+      child: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            TextFormField(
+              controller: _emailController,
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                hintText: 'Email',
+              ),
             ),
-          ),
-          SizedBox(
-            height: 8.0,
-          ),
-          TextFormField(
-            controller: _passwordController,
-            decoration: InputDecoration(
-              hintText: 'Password',
+            SizedBox(
+              height: 8.0,
             ),
-          ),
-          SizedBox(
-            height: 8.0,
-          ),
-          RaisedButton(
-            onPressed: () async {
-              String email = _emailController.text;
-              String password = _passwordController.text;
+            TextFormField(
+              controller: _passwordController,
+              decoration: InputDecoration(
+                hintText: 'Password',
+              ),
+            ),
+            SizedBox(
+              height: 8.0,
+            ),
+            RaisedButton(
+              onPressed: () async {
+                String email = _emailController.text;
+                String password = _passwordController.text;
 
-              FirebaseUser user =
-                  await _firebaseAuthentication.register(email, password);
-              print(user);
-            },
-            child: Text('Register'),
-          ),
-        ],
+                FirebaseUser user =
+                    await _firebaseAuthentication.register(email, password);
+                print(user);
+              },
+              child: Text('Register'),
+            ),
+            SizedBox(
+              height: 8.0,
+            ),
+            RaisedButton(
+              onPressed: () async {
+                _firebaseAuthentication.signOut();
+              },
+              child: Text('Signout'),
+            ),
+            SizedBox(
+              height: 8.0,
+            ),
+            RaisedButton(
+              onPressed: () async {
+                String email = _emailController.text;
+                String password = _passwordController.text;
+
+                FirebaseUser user =
+                    await _firebaseAuthentication.signIn(email, password);
+                print(user);
+              },
+              child: Text('Signin'),
+            ),
+          ],
+        ),
       ),
     );
   }
